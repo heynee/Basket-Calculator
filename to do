@@ -1,4 +1,3 @@
 1) Set number limit so as to not obstruct the view (e.g. max 5 numbers)
 2) At the start/after pushing delete, user should be able to add a dot after the 0 without actually pushing 0.
-3) User shouldn't be able to push multiple 0s before a dot.
-4) Save data if layout is changed
+3) Save data if layout is changed
