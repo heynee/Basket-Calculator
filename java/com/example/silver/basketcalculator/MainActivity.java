@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         if(v.getId() == R.id.btnDot && (display.equals("") || display.contains("."))) {
             return;
         }
+        
+         if(v.getId() == R.id.btn0 && (display.equals("0"))) {
+            return;
+        }
 
         Button b = (Button) v;
         display += b.getText();
