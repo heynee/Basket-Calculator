@@ -36,21 +36,24 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if(display == "") return;
+                if(display.equals("")) return;
 
-                num1 = Double.valueOf(textSubtractor.getText().toString());
-                num2 = Double.valueOf(textSubtractee.getText().toString());
+                num1 = Double.parseDouble(display);
+                num2 = Double.parseDouble(textSubtractee.getText().toString());
                 sub = num1 - num2;
                 textResult.setText(new DecimalFormat("##.##").format(sub));
-
             }
         });
     }
 
     public void onClickNumber(View v) {
-        if (result != "") {
+        if (result.equals("0")) {
             clear();
             updateScreen();
+        }
+
+        if(v.getId() == R.id.btnDot && (display.equals("") || display.contains("."))) {
+            return;
         }
 
         Button b = (Button) v;
@@ -59,14 +62,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickClear(View v) {
-
         clear();
-        updateScreen();
     }
 
     private void clear() {
         display = "";
         result = "";
+        textSubtractor.setText("0");
         textResult.setText("0");
     }
 
