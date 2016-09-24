@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(v.getId() == R.id.btnDot && (display.equals("") || display.contains("."))) {
+            clear();
             return;
         }
         
