@@ -56,8 +56,45 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
         
-         if(v.getId() == R.id.btn0 && (display.equals("0"))) {
-            return;
+       if(v.getId() == R.id.btn0 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn1 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn2 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn3 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn4 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn5 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn6 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn7 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn8 && (display.equals("0"))) {
+            clear();
+            updateScreen();
+        }
+        if(v.getId() == R.id.btn9 && (display.equals("0"))) {
+            clear();
+            updateScreen();
         }
 
         Button b = (Button) v;
