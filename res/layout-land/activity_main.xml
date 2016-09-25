@@ -215,7 +215,7 @@
         android:id="@+id/textResult"
         android:layout_marginLeft="15sp"
         android:textColor="#046e32"
-        android:textSize="37sp"
+        android:textSize="29sp"
         android:textIsSelectable="false"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
