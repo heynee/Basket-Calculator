@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         textSubtractor.setText(display);
     }
     
-        protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
         final TextView textSubtractor = (TextView)findViewById(R.id.textSubtractor);
