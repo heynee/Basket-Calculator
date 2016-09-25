@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if(display.equals("")) return;
 
+                if (display.endsWith(".")){
+                    return;
+                }
+
                 num1 = Double.parseDouble(display);
                 num2 = Double.parseDouble(textSubtractee.getText().toString());
                 sub = num1 - num2;
@@ -47,52 +51,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickNumber(View v) {
+
         if (result.equals("0")) {
             clear();
             updateScreen();
         }
 
         if(v.getId() == R.id.btnDot && (display.equals("") || display.contains("."))) {
-            return;
+           return;
         }
-        
-       if(v.getId() == R.id.btn0 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn1 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn2 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn3 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn4 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn5 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn6 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn7 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn8 && (display.equals("0"))) {
-            clear();
-            updateScreen();
-        }
-        if(v.getId() == R.id.btn9 && (display.equals("0"))) {
+
+        if((v.getId() == R.id.btn0 || v.getId() == R.id.btn1 || v.getId() == R.id.btn2 ||
+                v.getId() == R.id.btn3 || v.getId() == R.id.btn4 ||
+                v.getId() == R.id.btn5 ||  v.getId() ==R.id.btn6 ||
+                v.getId() == R.id.btn7 || v.getId() == R.id.btn8 ||
+                v.getId() == R.id.btn9) && (display.equals("0"))) {
             clear();
             updateScreen();
         }
