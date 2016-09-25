@@ -100,4 +100,28 @@ public class MainActivity extends AppCompatActivity {
     private void updateScreen() {
         textSubtractor.setText(display);
     }
+    
+        protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        final TextView textSubtractor = (TextView)findViewById(R.id.textSubtractor);
+        CharSequence userText = textSubtractor.getText();
+        outState.putCharSequence("savedText1", userText);
+
+        final TextView textResult = (TextView)findViewById(R.id.textResult);
+        CharSequence userText1 = textResult.getText();
+        outState.putCharSequence("savedText2", userText1);
+
+    }
+    protected void onRestoreInstanceState(Bundle savedState) {
+        super.onRestoreInstanceState(savedState);
+
+        final TextView textSubtractor = (TextView)findViewById(R.id.textSubtractor);
+        CharSequence userText = savedState.getCharSequence("savedText1");
+        textSubtractor.setText(userText);
+
+        final TextView textResult = (TextView)findViewById(R.id.textResult);
+        CharSequence userText1 = savedState.getCharSequence("savedText2");
+        textResult.setText(userText1);
+    }
 }
