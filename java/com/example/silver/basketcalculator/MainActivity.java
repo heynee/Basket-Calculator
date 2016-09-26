@@ -70,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
                 if (display.equals("")) {
                     return;
                 }
+                
+                if (display.endsWith(".")){
+                    Toast error = Toast.makeText(getApplicationContext(), "Enter a correct number.", Toast.LENGTH_LONG);
+                    error.show();
+                }
 
                 if (display.endsWith(".")) {
                     return;
