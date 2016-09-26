@@ -11,6 +11,30 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        final TextView textSubtractor = (TextView) findViewById(R.id.textSubtractor);
+        CharSequence userText = textSubtractor.getText();
+        outState.putCharSequence("savedText1", userText);
+
+        final TextView textResult = (TextView) findViewById(R.id.textResult);
+        CharSequence userText1 = textResult.getText();
+        outState.putCharSequence("savedText2", userText1);
+    }
+
+    protected void onRestoreInstanceState(Bundle savedState) {
+        super.onRestoreInstanceState(savedState);
+
+        final TextView textSubtractor = (TextView) findViewById(R.id.textSubtractor);
+        CharSequence userText = savedState.getCharSequence("savedText1");
+        textSubtractor.setText(userText);
+
+        final TextView textResult = (TextView) findViewById(R.id.textResult);
+        CharSequence userText1 = savedState.getCharSequence("savedText2");
+        textResult.setText(userText1);
+    }
+
     private TextView textResult;
     private TextView textSubtractor;
     private TextView textSubtractee;
@@ -18,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private String result = "0";
 
     Button btnDone;
-
     double num1, num2, sub;
 
 
@@ -27,13 +50,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textSubtractee = (TextView) findViewById(R.id.textSubtractee);
-
-        textSubtractor = (TextView) findViewById(R.id.textSubtractor);
-        textSubtractor.setFilters(new InputFilter[]{new InputFilter.LengthFilter(7)});
-
         textResult = (TextView) findViewById(R.id.textResult);
         textResult.setFilters(new InputFilter[]{new InputFilter.LengthFilter(8)});
+
+        textSubtractor = (TextView) findViewById(R.id.textSubtractor);
+        textSubtractor.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+
+        textSubtractee = (TextView) findViewById(R.id.textSubtractee);
 
         btnDone = (Button) findViewById(R.id.btnDone);
 
@@ -44,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
 
-                if (display.equals("")){
+                if (display.equals("")) {
                     return;
                 }
 
@@ -99,29 +122,5 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateScreen() {
         textSubtractor.setText(display);
-    }
-    
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        final TextView textSubtractor = (TextView)findViewById(R.id.textSubtractor);
-        CharSequence userText = textSubtractor.getText();
-        outState.putCharSequence("savedText1", userText);
-
-        final TextView textResult = (TextView)findViewById(R.id.textResult);
-        CharSequence userText1 = textResult.getText();
-        outState.putCharSequence("savedText2", userText1);
-
-    }
-    protected void onRestoreInstanceState(Bundle savedState) {
-        super.onRestoreInstanceState(savedState);
-
-        final TextView textSubtractor = (TextView)findViewById(R.id.textSubtractor);
-        CharSequence userText = savedState.getCharSequence("savedText1");
-        textSubtractor.setText(userText);
-
-        final TextView textResult = (TextView)findViewById(R.id.textResult);
-        CharSequence userText1 = savedState.getCharSequence("savedText2");
-        textResult.setText(userText1);
     }
 }
